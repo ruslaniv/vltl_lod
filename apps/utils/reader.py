@@ -27,7 +27,7 @@ def get_quotes(tickers, exchange='US'):
     return port, port_pct
 
 def get_ind(ticker):
-    df = get_eod_data(ticker, 'INDX',  start="2010-01-01", end="2021-05-01", session=session)
+    df = get_eod_data(ticker, 'INDX',  start="2010-01-01", end="2021-01-01", session=session)
     port = df['Close']
     port_pct = df['Close'].pct_change().dropna()
     port.columns = ticker

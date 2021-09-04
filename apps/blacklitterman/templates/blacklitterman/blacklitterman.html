@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+
+{% block content %}
+  <div class="d-flex align-items-center justify-content-center mb-5">
+    <div>
+      <h2 class="text-center">Доходности активов портфеля, скорректированные на риск</h2>
+      <img src="data:image/png;base64, {{ risk_rets|safe }}" alt="" id="unc" class="d-block mx-auto">
+    </div>
+    <div>
+      <h2 class="text-center">Ковариационная матрица</h2>
+      <img src="data:image/png;base64, {{ cov_mat|safe }}" alt="" id="unc" class="d-block mx-auto">
+    </div>
+  </div>
+  <div class="d-flex align-items-center justify-content-center mt-5">
+    <div>
+      <h2 class="text-center">Мнение об ожидаемых доходностях активов портфеля</h2>
+      <img src="data:image/png;base64, {{ views|safe }}" alt="" id="unc" class="d-block mx-auto">
+    </div>
+    <div>
+      <h2 class="text-center">Неопределенность ожидаемых доходностей</h2>
+      <img src="data:image/png;base64, {{ views_uncertain|safe }}" alt="" id="unc" class="d-block mx-auto">
+    </div>
+  </div>
+  <div class="d-flex align-items-center justify-content-center">
+    <div>
+      <h2 class="text-center">Модель Блэка-Литтермана</h2>
+      <img src="data:image/png;base64, {{ rets|safe }}" alt="" id="unc" class="d-block mx-auto">
+    </div>
+  </div>
+  <div class="d-flex align-items-center justify-content-center mt-5 mb-5">
+    <div>
+      <h2 class="text-center">Новые веса портфеля</h2>
+      <table class="table align-middle text-center">
+        <thead>
+          <tr class="align-middle text-center">
+            {% for row in weights.items %}
+              <th scope="col">{{ row.0 }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+           <tr>
+             {% for row in weights.items %}
+              <td>{{ row.1|percentize|floatformat:2 }}</td>
+             {% endfor %}
+           </tr>
+
+
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock content %}
