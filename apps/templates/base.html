@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>{% block title %}{% endblock title %}</title>
+	<meta name="description" content="Manage your Portfolios">
+	<meta name="keywords" content="stock, bond, portfolio, risk">
+	<meta name="author" content="Ruslan Ishtuganov">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="manifest" href="{% static '/utils/site.webmanifest' %}">
+	<link rel="apple-touch-icon" href="{% static '/utils/icon.png' %}">
+
+	<meta property="og:title" content="All About Chocolate"/> <!-- Change this accordingly -->
+	<meta property="og:type" content="website"/>
+	<meta property="og:url" content="https://www.vltl.org"/>
+	<meta property="og:image" content="img.chocolatemadness.com/news/chocolate-flavors.jpg"/> <!-- Change this accordingly -->
+	<!-- Open graph tags provide control over how content shows up on social media when a
+	link is shared. More at http://ogp.me -->
+
+<!--   CDN Copy of Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+<!--  Font Awesome Kit CDN  -->
+	<script src="https://kit.fontawesome.com/c2c4330555.js"
+	crossorigin="anonymous"></script>
+<!--  Font Awesome CSS CDN -->
+<!-- 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"> -->
+
+
+<!--  Main CSS file for styling, contains imports for specific CSS files -->
+	<link rel="stylesheet" href="{% static '/sass/app.min.css' %}" type="text/css">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<!--  CSS based on the media queries -->
+<!--  CSS style for Regular monitors and iPadPro in both orientations and iPad in landscape orientation -->
+		<!-- <link rel="stylesheet"
+		media="screen and (min-width:1024px)"
+		href="normal_styles.css"> -->
+<!--  CSS style for Tablets in portrait orientation -->
+  	<!-- <link rel="stylesheet"
+		media="screen and (max-width:1023.9px) and (min-width:768px) and (min-height: 700px)"
+		href="tablet_styles.css" >  -->
+<!--  CSS style for Smartphones in landscape orientation -->
+		<!-- <link rel="stylesheet"
+		media="screen and (max-width:850px) and (max-height: 450px)"
+		href="phone_landscape_styles.css" >  -->
+<!--  CSS style for Smartphones in portrait orientation-->
+		<!-- <link rel="stylesheet"
+		media="screen and (max-width:450px) and (max-height:850px)"
+		href="phone_portrait_styles.css" >  -->
+{#<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/js/selectize.min.js" integrity="sha512-JiDSvppkBtWM1f9nPRajthdgTCZV3wtyngKUqVHlAs0d5q72n5zpM3QMOLmuNws2vkYmmLn4r1KfnPzgC/73Mw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>#}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/js/standalone/selectize.min.js" integrity="sha512-pF+DNRwavWMukUv/LyzDyDMn8U2uvqYQdJN0Zvilr6DDo/56xPDZdDoyPDYZRSL4aOKO/FGKXTpzDyQJ8je8Qw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/css/selectize.css" integrity="sha512-85w5tjZHguXpvARsBrIg9NWdNy5UBK16rAL8VWgnWXK2vMtcRKCBsHWSUbmMu0qHfXW2FVUDiWr6crA+IFdd1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/css/selectize.bootstrap4.min.css" integrity="sha512-MMojOrCQrqLg4Iarid2YMYyZ7pzjPeXKRvhW9nZqLo6kPBBTuvNET9DBVWptAo/Q20Fy11EIHM5ig4WlIrJfQw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body id="mine">
+	<!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <p class="browserupgrade">Вы используете <strong>устаревший</strong> браузер. Вам следует <a href="https://browsehappy.com/">обновить ваш браузер</a> для того, чтобы вы могли комфортно и безопасно использовать сеть Интернет.</p>
+  	<![endif]-->
+  {% include 'includes/_header.html' %}
+  {% block content %}
+  {% endblock content %}
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+{#<!-- Lodash CDN-->#}
+{#  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"#}
+{#  integrity="sha256-ur/YlHMU96MxHEsy3fHGszZHas7NzH4RQlD4tDVvFhw="#}
+{#  crossorigin="anonymous"></script>#}
+
+
+<!-- Custom JS scripts -->
+	<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

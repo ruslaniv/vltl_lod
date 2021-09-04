@@ -10,10 +10,10 @@ argon2-cffi==20.1.0  # https://github.com/hynek/argon2_cffi
 # ------------------------------------------------------------------------------
 django  # https://www.djangoproject.com/
 django-environ  # https://github.com/joke2k/django-environ
-# django-model-utils==4.0.0  # https://github.com/jazzband/django-model-utils
+django-model-utils==4.0.0  # https://github.com/jazzband/django-model-utils
 # django-allauth==0.45.0  # https://github.com/pennersr/django-allauth
-# django-crispy-forms==1.11.2  # https://github.com/django-crispy-forms/django-crispy-forms
-# crispy-bootstrap5== 0.3.1 # https://github.com/django-crispy-forms/crispy-bootstrap5
+django-crispy-forms==1.11.2  # https://github.com/django-crispy-forms/django-crispy-forms
+crispy-bootstrap5== 0.3.1 # https://github.com/django-crispy-forms/crispy-bootstrap5
 # django-autoslug==1.9.8  # https://github.com/justinmayer/django-autoslug/
 
 # Data
@@ -36,4 +36,4 @@ fastparquet
 # Reader
 requests
 requests-cache
-git+https://github.com/femtotrader/python-eodhistoricaldata.git
+# git+https://github.com/femtotrader/python-eodhistoricaldata.git
