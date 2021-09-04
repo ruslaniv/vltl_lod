@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="text-center">Эффективное множество портфелей</h1>
+    <img src="data:image/png;base64, {{ chart|safe }}" alt="" id="markowitz" class="d-block mx-auto">
+  </div>
+  <div class="container">
+    <h2 class="text-center mt-5 mb-3">Портфель с минимальным риском</h2>
+    <table class="table align-middle text-center">
+        <thead>
+          <tr class="align-middle text-center">
+            {% for ticker in gmv_weights %}
+              <th scope="col">{{ ticker.0 }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              {% for ticker in gmv_weights %}
+                <td>{{ ticker.1|percentize|floatformat:0 }} %</td>
+              {% endfor %}
+            </tr>
+        </tbody>
+      </table>
+  </div>
+  <div class="container mb-5">
+    <h2 class="text-center mt-5 mb-3">Портфель с максимальным коэффициентом Шарпа</h2>
+    <table class="table align-middle text-center">
+        <thead>
+          <tr class="align-middle text-center">
+            {% for ticker in max_sharpe %}
+              <th scope="col">{{ ticker.0 }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              {% for ticker in max_sharpe %}
+                <td>{{ ticker.1|floatformat:0 }} %</td>
+              {% endfor %}
+            </tr>
+        </tbody>
+      </table>
+  </div>
+{% endblock content %}

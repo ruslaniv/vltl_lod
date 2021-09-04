@@ -15,6 +15,7 @@ urlpatterns = [
     path('', include('apps.pages.urls', namespace='pages')),
     path('portfolio/', include('apps.portfolio.urls', namespace='portfolio')),
     path('statistic/', include('apps.statistic.urls', namespace='statistic')),
+    path('markowitz/', include('apps.markowitz.urls', namespace='markowitz')),
 
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
