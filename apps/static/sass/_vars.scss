@@ -1,0 +1,58 @@
+/* All variables are defined in this file */
+
+/*
+Global scope vars, visible everywhere
+:root {
+  --primary-color: red;
+}
+*/
+
+/* 
+Local scoped vars visible only in this element and its children only, shadows global vars
+.container {
+  --primary-color: blue;
+}
+*/
+
+/* 
+Use variables later in the CSS like this
+p {
+  color: var(--primary-color, red) /* 2nd value is optional and is the fallback in case var is not set
+}
+*/
+
+
+/* NAV styles here */
+
+/*MAIN CONTENT styles here */
+
+/*FOOTER styles here */
+
+/* 
+Bootstrap 4 breakpoints
+ Small devices (portrait phones) XS
+@media (max-width: 576px) {
+    html {font-size: 62.5%;}
+    body {font-size: 1rem;}
+}
+ Small devices (landscape phones) SM
+@media (min-width: 576px) {
+    html {font-size: 62.5%;}
+    body{font-size: 1rem;}
+}
+ Medium devices (tablets) MD
+@media (min-width: 768px) {
+    html {font-size: 62.5%;}
+    body {font-size: 1.2rem;}
+}
+ Large devices (desktops) LG
+@media (min-width: 992px) {
+    html {font-size: 62.5%;}
+    body {font-size: 1.4rem;}
+}
+ Extra large devices (large desktops) XL
+@media (min-width: 1200px) {
+    html {font-size: 62.5%;}
+    body {font-size: 1.6rem;}
+}
+*/

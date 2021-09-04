@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load custom_filters %}
+
+{% block content %}
+<div class="container">
+  <div class="demo">
+	  <h1 class="mb-5">Создание портфеля</h1>
+    <form method="post" action="{% url 'portfolio:portfolio' %}">
+      {% csrf_token %}
+      <div class="control-group">
+  {#	  <label for="select-state">Тикеры:</label>#}
+        <select id="select-state" name="state[]" multiple class="demo-default" style="width:100%" placeholder="Выбрать тикеры">
+  {#						<option value="">Select a ticker</option>#}
+              <option value="AAPL">AAPL</option>
+              <option value="ABT">ABT</option>
+              <option value="ACN">ACN</option>
+              <option value="ADBE">ADBE</option>
+              <option value="AMZN">AMZN</option>
+              <option value="BAC">BAC</option>
+              <option value="CMCSA">CMCSA</option>
+              <option value="COST">COST</option>
+              <option value="CRM">CRM</option>
+              <option value="CSCO">CSCO</option>
+              <option value="CVX">CVX</option>
+              <option value="DHR">DHR</option>
+              <option value="DIS">DIS</option>
+              <option value="HD">HD</option>
+              <option value="INTC">INTC</option>
+              <option value="JNJ">JNJ</option>
+              <option value="JPM">JPM</option>
+              <option value="KO">KO</option>
+              <option value="LLY">LLY</option>
+              <option value="MA">MA</option>
+              <option value="MCD">MCD</option>
+              <option value="MDT">MDT</option>
+              <option value="MRK">MRK</option>
+              <option value="MS">MS</option>
+              <option value="MSFT">MSFT</option>
+              <option value="NFLX">NFLX</option>
+              <option value="NKE">NKE</option>
+              <option value="NVDA">NVDA</option>
+              <option value="ORCL">ORCL</option>
+              <option value="PEP">PEP</option>
+              <option value="PFE">PFE</option>
+              <option value="PG">PG</option>
+              <option value="QCOM">QCOM</option>
+              <option value="T">T</option>
+              <option value="TMO">TMO</option>
+              <option value="TXN">TXN</option>
+              <option value="UNH">UNH</option>
+              <option value="UPS">UPS</option>
+              <option value="V">V</option>
+              <option value="VZ">VZ</option>
+              <option value="WFC">WFC</option>
+              <option value="WMT">WMT</option>
+              <option value="XOM">XOM</option>
+            </select>
+      </div>
+      <button class="btn btn-success mt-5" id="portfolio" type="submit">Создать портфель</button>
+    </form>
+  </div>
+</div>
+  <script>
+		$('#select-state').selectize({});
+	</script>
+
+  <div class="d-flex align-items-center justify-content-center mt-5 mb-5">
+    <div>
+    <h2 class="text-center">Портфель</h2>
+    <table class="table align-middle text-center">
+      <thead>
+        <tr class="align-middle text-center">
+          {% for row in newport.items %}
+            {% for el in row %}
+              <th scope="col">{{ el.0 }}</th>
+            {% endfor %}
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          {% for row in newport.items %}
+            {% for el in row %}
+              <td>{{ el.1|percentize|floatformat:2}}</td>
+            {% endfor %}
+          {% endfor %}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+{% endblock content %}
