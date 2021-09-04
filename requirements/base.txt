@@ -22,6 +22,8 @@ numpy # https://numpy.org/
 matplotlib # https://matplotlib.org/
 seaborn # https://seaborn.pydata.org/
 fastparquet
+cvxpy
+scikit-learn
 # xhtml2pdf==0.2.5 #https://xhtml2pdf.readthedocs.io
 
 # DRF

@@ -16,6 +16,7 @@ urlpatterns = [
     path('portfolio/', include('apps.portfolio.urls', namespace='portfolio')),
     path('statistic/', include('apps.statistic.urls', namespace='statistic')),
     path('markowitz/', include('apps.markowitz.urls', namespace='markowitz')),
+    path('blacklitterman/', include('apps.blacklitterman.urls', namespace='blacklitterman')),
 
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
