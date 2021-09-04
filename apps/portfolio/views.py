@@ -8,12 +8,6 @@ import math
 from django.views.generic import TemplateView, FormView
 from .forms import TickerForm
 
-import os
-
-cwd = os.getcwd()  # Get the current working directory (cwd)
-files = os.listdir(cwd)  # Get all the files in that directory
-print("Files in %r: %s" % (cwd, files))
-
 
 class PortfolioHomeView(FormView):
     form_class = TickerForm

@@ -14,6 +14,7 @@ urlpatterns = [
     # Your stuff: custom urls includes go here
     path('', include('apps.pages.urls', namespace='pages')),
     path('portfolio/', include('apps.portfolio.urls', namespace='portfolio')),
+    path('statistic/', include('apps.statistic.urls', namespace='statistic')),
 
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

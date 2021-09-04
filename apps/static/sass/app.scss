@@ -33,20 +33,27 @@ html {
 header {
     display: flex;
     justify-content: space-between;
+    margin: 3rem 5rem;
 }
 
 body {
     background-color: ghostwhite;
-}
 
-.lead {
-    display: flex;
-    justify-content: center;
+    .lead {
+        display: flex;
+        justify-content: center;
 
-    h1 {
-        font-size: 10rem;
+        h1 {
+            font-size: 10rem;
+        }
+    }
+    #charts {
+        display: flex;
+        justify-content: center;
     }
 }
+
+
 
 
 
