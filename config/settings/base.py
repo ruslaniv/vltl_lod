@@ -86,8 +86,8 @@ DJANGO_APPS = [
     "django.forms",
 ]
 THIRD_PARTY_APPS = [
-    # "crispy_forms",
-    # "crispy_bootstrap5",
+    "crispy_forms",
+    "crispy_bootstrap5",
     # "django_countries",
 
     # "allauth",  # django-allauth user registration
@@ -105,6 +105,8 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     # Your stuff: custom apps go here
+    'pages.apps.PagesConfig',
+    'portfolio.apps.PortfolioConfig',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
