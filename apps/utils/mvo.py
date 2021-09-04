@@ -94,7 +94,7 @@ def plot_efficient_frontier(number_of_portfolios, expected_returns, covariance_m
   portfolio_volatility = [get_portfolio_volatility(weight, covariance_matrix) for weight in weights]
   efficient_frontier = pd.DataFrame({'Returns': portfolio_returns, "Volatility": portfolio_volatility})
   chart = efficient_frontier.plot.line(x='Volatility', y='Returns', color="darkblue", style=style)
-  chart.set(xlabel="Volatility", ylabel="Returns")
+  chart.set(xlabel="Волатильность", ylabel="Доходность")
   chart.set_xlim(left=0)
   chart.xaxis.labelpad = 20
   # plt.xticks(np.arange(0.02, max(portfolio_volatility), 0.02))
@@ -104,7 +104,7 @@ def plot_efficient_frontier(number_of_portfolios, expected_returns, covariance_m
   chart.spines['top'].set_visible(False)
   chart.spines['right'].set_visible(False)
   lines = [Line2D([0], [0], color='darkblue', linewidth=3, linestyle="-")]
-  labels = ['Efficient Frontier']
+  labels = ['Эффективное множество']
   if show_cml:
     weights_max_sharpe = maximize_sharpe_ratio(risk_free_rate, expected_returns, covariance_matrix)
     returns_max_sharpe = get_portfolio_returns(weights_max_sharpe, expected_returns)
@@ -119,6 +119,7 @@ def plot_efficient_frontier(number_of_portfolios, expected_returns, covariance_m
     cml_x = [0, volatility_max_sharpe]
     cml_y = [risk_free_rate, returns_max_sharpe]
     chart.plot(cml_x, cml_y, color='green', marker='o', markersize=12, linestyle='dashed', linewidth=2)
+    # chart.plot(cml_x, cml_y, color='white', markersize=0, linestyle='dashed', linewidth=0)
     lines.append(Line2D([0], [0], color='green', linewidth=3, linestyle="-"))
     labels.append('CML')
   if show_ew_portfolio:  # show equally weighted portfolio

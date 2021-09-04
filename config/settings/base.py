@@ -108,6 +108,7 @@ LOCAL_APPS = [
     'pages.apps.PagesConfig',
     'portfolio.apps.PortfolioConfig',
     'statistic.apps.StatisticConfig',
+    'markowitz.apps.MarkowitzConfig',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
