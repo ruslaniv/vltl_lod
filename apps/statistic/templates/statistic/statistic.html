@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+
+{% block content %}
+  <div class="container">
+    <div class="portfolio">
+      <h2 class="text-center">Статистика по портфелю</h2>
+      <table class="table align-middle text-center">
+        <thead>
+          <tr class="align-middle text-center">
+            <th scope="col">Доходность (годовая)</th>
+            <th scope="col">Риск (годовой)</th>
+            <th scope="col">Скошенность</th>
+            <th scope="col">Эксцесс</th>
+            <th scope="col">Cornish Fischer VaR (5%)</th>
+            <th scope="col">Исторический cVaR (5%)</th>
+            <th scope="col">Коэффициент Шарпа</th>
+            <th scope="col">Максимальная просадка</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td>{{ total_port_returns|percentize|floatformat:2 }} %</td>
+              <td>{{ total_port_vol|percentize|floatformat:2 }} %</td>
+              <td>{{ skewness|floatformat:2 }}</td>
+              <td>{{ kurtosis|floatformat:2 }}</td>
+              <td>{{ cornish_fisher_var|percentize|floatformat:2 }} %</td>
+              <td>{{ historic_cvar|percentize|floatformat:2 }} %</td>
+              <td>{{ annualized_sharpe_ratio|percentize|floatformat:2 }} %</td>
+              <td>{{ drawdown|percentize|floatformat:2 }} %</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tickers">
+      <h2 class="text-center mt-5">Статистика по ценным бумагам портфеля</h2>
+      <table class="table align-middle text-center">
+        <thead>
+          <tr class="align-middle text-center">
+            <th scope="col">ЦБ</th>
+            <th scope="col">Доходность (годовая)</th>
+            <th scope="col">Риск (годовой)</th>
+            <th scope="col">Скошенность</th>
+            <th scope="col">Эксцесс</th>
+            <th scope="col">Cornish Fischer VaR (5%)</th>
+            <th scope="col">Исторический cVaR (5%)</th>
+            <th scope="col">Коэффициент Шарпа</th>
+            <th scope="col">Максимальная просадка</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in portfolio_stats.itertuples %}
+            <tr>
+              <td>{{ row.0 }}</td>
+              <td>{{ row.1|percentize|floatformat:2 }} %</td>
+              <td>{{ row.2|percentize|floatformat:2 }} %</td>
+              <td>{{ row.Skewness|floatformat:2 }}</td>
+              <td>{{ row.Kurtosis|floatformat:2 }}</td>
+              <td>{{ row.5|percentize|floatformat:2 }} %</td>
+              <td>{{ row.6|percentize|floatformat:2 }} %</td>
+              <td>{{ row.7|percentize|floatformat:2 }} %</td>
+              <td>{{ row.8|percentize|floatformat:2 }} %</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+        <div class="d-grid gap-2 d-md-flex justify-content-sm-center mb-5">
+          <button class="btn btn-info btn-lg" id="show-charts">Графики</button>
+        </div>
+      </div>
+      <div id="chart" class="not-visible">
+        <div class="container">
+          {% for chart in charts %}
+            <img src="data:image/png;base64, {{ chart|safe }}" alt="" id="img">
+          {% endfor %}
+        </div>
+    </div>
+  </div>
+
+{% endblock content %}
